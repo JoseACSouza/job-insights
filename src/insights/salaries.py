@@ -9,16 +9,17 @@ class ProcessSalaries(ProcessJobs):
     def get_max_salary(self) -> int:
         res_list = []
         for row in self.jobs_list:
-            if row["max_salary"] != '' and row["max_salary"] != 'invalid' and row["max_salary"] not in res_list:
-                number = row["max_salary"]
-                res_list.append(int(float(number)))
+            holder = row["max_salary"]
+            if holder != '' and holder != 'invalid' and holder:
+                res_list.append(int(holder))
         return(max(res_list))
 
     def get_min_salary(self) -> int:
         res_list = []
         for row in self.jobs_list:
-            if row["min_salary"] != '' and row["min_salary"] != 'invalid' and row["min_salary"] not in res_list:
-                res_list.append(int(row["min_salary"]))
+            holder = row["min_salary"]
+            if holder != '' and holder != 'invalid' and holder:
+                res_list.append(int(holder))
         return(min(res_list))
 
     def matches_salary_range(self, job: Dict, salary: Union[int, str]) -> bool:
