@@ -19,7 +19,11 @@ class ProcessJobs:
         self.jobs_list = response
 
     def get_unique_job_types(self) -> List[str]:
-        pass
+        res_list = []
+        for job in self.jobs_list:
+            if job["job_type"] not in res_list:
+                res_list.append(job["job_type"])
+        return(res_list)
 
     def filter_by_multiple_criteria(self) -> List[dict]:
         pass
