@@ -11,5 +11,4 @@ def test_counter():
     assert count_ocurrences(correct_path, word1_lc) == count_word1
     assert count_ocurrences(correct_path, word1_uc) == count_word1
     assert count_ocurrences(correct_path, word1_mixed) == count_word1
-    assert type(count_ocurrences(correct_path, word1_mixed)) is int 
-
+    assert type(count_ocurrences(correct_path, word1_mixed)) is int
