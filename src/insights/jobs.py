@@ -25,5 +25,13 @@ class ProcessJobs:
                 res_list.append(job["job_type"])
         return(res_list)
 
-    def filter_by_multiple_criteria(self) -> List[dict]:
-        pass
+    def filter_by_multiple_criteria(self, list, di) -> List[dict]:
+        if(type(di) != dict):
+            raise TypeError
+        di = dict(di)
+        filtered_list = []
+        header, *tail = di
+        for job in list:
+            if job[header] == di[header] or job[tail[0]] == di[tail[0]]:
+                filtered_list.append(job)
+        return(filtered_list)
